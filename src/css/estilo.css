@@ -1,0 +1,36 @@
+:root {
+    --color-primary: blue;
+    --bg-dark: #030303;
+    --btn-color: #0f0707;
+    --text-color: #f1f5f9;
+    --header-bg: #0f172a;
+    --linear-bg: linear-gradient(to right, #0f172a, #1e293b);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 50px !important;
+
+}
+
+.logo:hover {
+    letter-spacing: 10px;
+    padding: 20px;
+    animation: acender 1s forwards;
+}
+
+.logo span {
+    padding: 10px;
+}
+
+@keyframes acender {
+    to {
+        color: var(--color-primary);
+        text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 40px var(--color-primary), 0 0 80px var(--color-primary);
+    }
+}
