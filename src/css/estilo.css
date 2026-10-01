@@ -1,5 +1,5 @@
 :root {
-    --color-primary: blue;
+    --color-primary: #3b82f6;
     --bg-dark: #030303;
     --btn-color: #0f0707;
     --text-color: #f1f5f9;
@@ -13,24 +13,147 @@
     box-sizing: border-box;
 }
 
-main {
-    margin-top: 50px !important;
+html,
+body,
+#root {
+    min-height: 100%;
+}
 
+body {
+    background: var(--bg-dark);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-page {
+    padding: 0 5%;
+    margin-top: 40px;
+    margin-bottom: 64px;
+}
+
+.titulo {
+    font-size: clamp(2.2rem, 3vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #fff;
+    letter-spacing: 0.02em;
+    background: linear-gradient(90deg, #1d4ed8, #8b5cf6, #22d3ee, #2563eb, #8b5cf6, #1d4ed8);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+}
+
+.logo {
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6, #22d3ee, #60a5fa);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 7s ease infinite;
 }
 
 .logo:hover {
-    letter-spacing: 10px;
-    padding: 20px;
-    animation: acender 1s forwards;
+    letter-spacing: 0.08em;
+    animation: acender 0.6s forwards, gradientShift 7s ease infinite;
 }
 
 .logo span {
-    padding: 10px;
+    padding: 0.25rem;
+    background: linear-gradient(90deg, #60a5fa, #22d3ee, #8b5cf6, #60a5fa);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 7s ease infinite;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.game-card {
+    background: #000;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    border-color: #22d3ee;
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.3);
+}
+
+.game-card__image {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: #dfe4df;
+}
+
+.game-card__content {
+    padding: 18px 16px 20px;
+    text-align: center;
+}
+
+.game-card__title {
+    color: #38bdf8;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.game-card__price {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.game-card__button {
+    width: 60%;
+    padding: 14px 16px;
+    background: linear-gradient(to right, #22d3ee, #8b5cf6);
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.game-card__button:hover {
+    transform: scale(1.04);
+    filter: brightness(1.1);
 }
 
 @keyframes acender {
     to {
         color: var(--color-primary);
         text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 40px var(--color-primary), 0 0 80px var(--color-primary);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
